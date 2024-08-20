@@ -94,6 +94,24 @@ If you prefer to set up the project manually or are using a different operating 
 
 3. Set up authentication in your Supabase project and enable email/password sign-up.
 
+## Testing the Application
+
+After setting up the project, you can easily test it by running the following command in the project directory:
+
+```
+npm test
+```
+
+This will run the test suite and provide you with the results.
+
+For manual testing, you can start the development server with:
+
+```
+npm start
+```
+
+Then open your browser and navigate to `http://localhost:3000` to interact with the application.
+
 ## Todo List
 
 - [ ] Implement content creation functionality
@@ -106,6 +124,7 @@ If you prefer to set up the project manually or are using a different operating 
 - [ ] Implement notifications for new content and messages
 - [ ] Add content moderation features
 - [ ] Implement analytics for content creators
+- [x] Add basic testing setup
 
 ## Contributing
 

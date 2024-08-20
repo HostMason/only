@@ -25,4 +25,9 @@ npm install
 # Create .env file (you'll need to manually add your Supabase credentials)
 cp .env.example .env
 
+# Run tests
+npm test
+
 echo "Installation complete! Please add your Supabase credentials to the .env file."
+echo "You can run tests at any time using 'npm test'"
+echo "To start the development server, use 'npm start'"
