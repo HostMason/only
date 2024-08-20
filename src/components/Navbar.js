@@ -12,6 +12,7 @@ function Navbar() {
         {user ? (
           <>
             <li><Link to={`/profile/${user.id}`}>Profile</Link></li>
+            {user.role === 'admin' && <li><Link to="/admin">Admin Panel</Link></li>}
             <li><button onClick={signOut}>Sign Out</button></li>
           </>
         ) : (

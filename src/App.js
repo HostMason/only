@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Login from './components/Login';
 import Register from './components/Register';
+import AdminPanel from './components/AdminPanel';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/profile/:id" component={Profile} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/admin" component={AdminPanel} />
           </Switch>
         </div>
       </Router>
