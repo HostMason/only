@@ -2,26 +2,67 @@
 
 This project is a React-based web application that mimics some of the core functionalities of OnlyFans, using Supabase as the backend.
 
-## Initial Setup
+## System Requirements
 
-1. Clone the repository:
+- Ubuntu 22.04 LTS
+
+## Installation
+
+We provide an installer script that sets up the project environment, including Node.js, npm, Git, and the Supabase CLI. To use the installer:
+
+1. Download the installer script:
    ```
-   git clone https://github.com/yourusername/onlyfans-clone.git
+   curl -O https://raw.githubusercontent.com/yourusername/onlyfans-clone/main/install.sh
+   ```
+
+2. Make the script executable:
+   ```
+   chmod +x install.sh
+   ```
+
+3. Run the installer:
+   ```
+   ./install.sh
+   ```
+
+4. After the installation is complete, navigate to the project directory:
+   ```
    cd onlyfans-clone
    ```
 
-2. Install dependencies:
-   ```
-   npm install
-   ```
-
-3. Create a `.env` file in the root directory and add your Supabase credentials:
+5. Open the `.env` file and add your Supabase credentials:
    ```
    REACT_APP_SUPABASE_URL=your_supabase_project_url
    REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
-4. Start the development server:
+6. Start the development server:
+   ```
+   npm start
+   ```
+
+## Manual Setup
+
+If you prefer to set up the project manually or are using a different operating system, follow these steps:
+
+1. Install Node.js and npm (https://nodejs.org/)
+2. Install Git (https://git-scm.com/)
+3. Install Supabase CLI (https://supabase.io/docs/guides/cli)
+4. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/onlyfans-clone.git
+   cd onlyfans-clone
+   ```
+5. Install dependencies:
+   ```
+   npm install
+   ```
+6. Create a `.env` file in the root directory and add your Supabase credentials:
+   ```
+   REACT_APP_SUPABASE_URL=your_supabase_project_url
+   REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+7. Start the development server:
    ```
    npm start
    ```
