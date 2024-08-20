@@ -19,8 +19,8 @@ rm supabase.deb
 sudo npm install -g pm2
 
 # Clone the repository
-git clone https://github.com/your-actual-username/onlyfans-clone.git
-cd onlyfans-clone
+git clone https://github.com/HostMason/only.git
+cd only
 
 # Install project dependencies
 npm install
