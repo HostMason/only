@@ -11,15 +11,17 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y git
 
 # Install Supabase CLI
-curl -fsSL https://github.com/supabase/cli/releases/latest/download/supabase_linux_amd64.deb -o supabase.deb
+wget -O supabase.deb https://github.com/supabase/cli/releases/download/v1.64.8/supabase_1.64.8_linux_amd64.deb
 sudo dpkg -i supabase.deb
 rm supabase.deb
 
 # Install PM2 globally
 sudo npm install -g pm2
 
-# Clone the repository
-git clone https://github.com/HostMason/only.git
+# Clone the repository (if not already cloned)
+if [ ! -d "only" ]; then
+  git clone https://github.com/HostMason/only.git
+fi
 cd only
 
 # Install project dependencies
@@ -28,24 +30,26 @@ npm install
 # Install serve for production
 npm install --save serve
 
-# Set up Supabase project
-supabase init
-supabase start
+# Set up Supabase project (commented out for now)
+# supabase init
+# supabase start
 
-# Run Supabase migrations
-supabase db push
+# Run Supabase migrations (commented out for now)
+# supabase db push
 
-# Create .env file with Supabase credentials
-SUPABASE_URL=$(supabase status | grep URL | awk '{print $2}')
-SUPABASE_ANON_KEY=$(supabase status | grep anon | awk '{print $5}')
-echo "REACT_APP_SUPABASE_URL=$SUPABASE_URL" > .env
-echo "REACT_APP_SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY" >> .env
+# Create .env file with placeholder Supabase credentials
+echo "REACT_APP_SUPABASE_URL=your_supabase_project_url" > .env
+echo "REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key" >> .env
+
+# Add build and test scripts to package.json
+npm set-script build "react-scripts build"
+npm set-script test "react-scripts test"
 
 # Build the project for production
 npm run build
 
-# Run tests
-npm test
+# Run tests (add --passWithNoTests to avoid failing if there are no tests yet)
+npm test -- --passWithNoTests
 
 # Set up PM2 to run the application
 pm2 start npm --name "onlyfans-clone" -- start
