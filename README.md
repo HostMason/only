@@ -1,14 +1,28 @@
 # OnlyFans Clone
 
-This project is a React-based web application that mimics some of the core functionalities of OnlyFans, using Supabase as the backend.
+This project is a React-based web application that mimics some of the core functionalities of OnlyFans, using Supabase as the backend. It provides a platform for content creators to share exclusive content with their subscribers.
+
+## Features
+
+- User authentication (sign up, login, logout)
+- User profiles
+- Content creation and sharing
+- Subscription management
+- Feed of subscribed content creators
+- Payment integration (planned)
 
 ## System Requirements
 
-- Ubuntu 22.04 LTS
+- Node.js (v14 or later)
+- npm (v6 or later)
+- Git
+- Supabase CLI
 
 ## Installation
 
-We provide an installer script that sets up the project environment, including Node.js, npm, Git, and the Supabase CLI. To use the installer:
+We provide an installer script for Ubuntu 22.04 LTS that sets up the project environment. For other operating systems, please follow the manual setup instructions.
+
+### Automatic Installation (Ubuntu 22.04 LTS)
 
 1. Download the installer script:
    ```
@@ -36,14 +50,7 @@ We provide an installer script that sets up the project environment, including N
    REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
-6. Start the development server:
-   ```
-   npm start
-   ```
-
-## Manual Setup
-
-If you prefer to set up the project manually or are using a different operating system, follow these steps:
+### Manual Setup
 
 1. Install Node.js and npm (https://nodejs.org/)
 2. Install Git (https://git-scm.com/)
@@ -62,10 +69,29 @@ If you prefer to set up the project manually or are using a different operating 
    REACT_APP_SUPABASE_URL=your_supabase_project_url
    REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
-7. Start the development server:
-   ```
-   npm start
-   ```
+
+## Running the Application
+
+### Development Mode
+
+Start the development server:
+```
+npm run dev
+```
+
+Open your browser and navigate to `http://localhost:3000`.
+
+### Production Mode
+
+Build the project:
+```
+npm run build
+```
+
+Start the production server:
+```
+npm start
+```
 
 ## Supabase Configuration
 
@@ -73,46 +99,28 @@ If you prefer to set up the project manually or are using a different operating 
 
 2. Set up the following tables in your Supabase database:
 
-   - `profiles`:
-     - `id` (uuid, primary key)
-     - `username` (text, unique)
-     - `bio` (text)
-     - `avatar_url` (text)
-
-   - `posts`:
-     - `id` (uuid, primary key)
-     - `user_id` (uuid, foreign key to profiles.id)
-     - `content` (text)
-     - `created_at` (timestamp with time zone)
-
-   - `subscriptions`:
-     - `id` (uuid, primary key)
-     - `subscriber_id` (uuid, foreign key to profiles.id)
-     - `creator_id` (uuid, foreign key to profiles.id)
-     - `start_date` (date)
-     - `end_date` (date)
+   - `profiles`: User profile information
+   - `posts`: Content posts
+   - `subscriptions`: Subscription relationships between users
 
 3. Set up authentication in your Supabase project and enable email/password sign-up.
 
-## Testing the Application
+## Testing
 
-After setting up the project, you can easily test it by running the following command in the project directory:
-
+Run the test suite:
 ```
 npm test
 ```
 
-This will run the test suite and provide you with the results.
+## Contributing
 
-For manual testing, you can start the development server with:
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-```
-npm start
-```
+## License
 
-Then open your browser and navigate to `http://localhost:3000` to interact with the application.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-## Todo List
+## Roadmap
 
 - [ ] Implement content creation functionality
 - [ ] Add subscription management features
@@ -124,12 +132,7 @@ Then open your browser and navigate to `http://localhost:3000` to interact with 
 - [ ] Implement notifications for new content and messages
 - [ ] Add content moderation features
 - [ ] Implement analytics for content creators
-- [x] Add basic testing setup
 
-## Contributing
+## Support
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+If you encounter any issues or have questions, please file an issue on the GitHub repository.
