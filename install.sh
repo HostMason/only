@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# Function to ask yes/no questions
+ask_yes_no() {
+    while true; do
+        read -p "$1 (y/n): " yn
+        case $yn in
+            [Yy]* ) return 0;;
+            [Nn]* ) return 1;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+}
+
+# Ask if user wants to do a fresh install
+if ask_yes_no "Do you want to perform a fresh install? This will remove all previous files."; then
+    echo "Performing fresh install..."
+    # Remove previous installation if it exists
+    if [ -d "only" ]; then
+        rm -rf only
+    fi
+else
+    echo "Continuing with existing files..."
+fi
+
 # Update and upgrade the system
 sudo apt update && sudo apt upgrade -y
 
@@ -20,7 +43,7 @@ sudo npm install -g pm2
 
 # Clone the repository (if not already cloned)
 if [ ! -d "only" ]; then
-  git clone https://github.com/HostMason/only.git
+    git clone https://github.com/HostMason/only.git
 fi
 cd only
 
